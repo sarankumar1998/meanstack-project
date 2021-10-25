@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6">
+            <img src="../../assets/—Pngtree—register job vacancies with a_6441857.png" width="100%" alt="">
+        </div>
+       
+                <div class="col col-md-5 mt-5">
+                    <div *ngIf='errormsg' class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{errormsg}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div *ngIf='successmsg' class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{successmsg}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+               
+                    <div class="card mt-5">
+                   
+                     <div class="card-body">
+            
+                    <form [formGroup]="userForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" formControlName="name" id="name" name="name"
+                                aria-describedby="emailHelp">
+                            <span *ngIf="!userForm.get('name').valid && userForm.get('name').touched"
+                                style="color: rgb(243, 9, 9); font-size: 13px;">Please enter a valid name!</span>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- <label for="email">Email</label>
+                    <input type="email" class="form-control" name='email' formControlName="email" id="email"
+                        aria-describedby="emailHelp">
+                        <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched"
+                        style="color: rgb(231, 20, 20); font-size: 13px;" > Invalid email!</span> -->
+                            <label for="email">Email</label>
+                            <input type="email"
+                                [class.is-invalid]="userForm.get('email').invalid && userForm.get('email').touched"
+                                class="form-control" name="email" id="email" formControlName="email" />
+                            <div
+                                *ngIf="(userForm.get('email').invalid && userForm.get('email').touched) || userForm.get('email').dirty">
+                                <span style="color: rgb(243, 9, 9); font-size: 13px;"
+                                    *ngIf="userForm.get('email').errors?.required">Email
+                                    address is required!</span>
+                                <span style="color: rgb(243, 9, 9); font-size: 13px;"
+                                    *ngIf="userForm.get('email').errors?.pattern">Email
+                                    address is invalid!</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" class="form-control" formControlName="mobile" id="mobile" name="mobile">
+                            <span *ngIf="!userForm.get('mobile').valid && userForm.get('mobile').touched"
+                                style="color: rgb(243, 9 , 9); font-size: 13px;">Please enter a mobile number!</span>
+                        </div>
+
+
+                        <div>
+                            <button type="submit" class="btn btn-primary mt-3" *ngIf="!getparamid"
+                                (click)="userSubmit()">Submit</button>
+                            &nbsp;
+                            <button type="submit" class="btn btn-secondary mt-3" *ngIf="getparamid"
+                                (click)="userUpdate()">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>

@@ -1,0 +1,14 @@
+
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+
+li{
+    padding-left: 1rem;
+}
+a{
+    list-style: none;
+    text-decoration: none;
+}

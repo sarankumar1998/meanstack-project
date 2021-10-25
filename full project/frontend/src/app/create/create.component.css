@@ -1,0 +1,11 @@
+.form-group{
+    line-height: 2rem;
+}
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red
+}
+
+.card{
+    /* background-image: url(../../assets/gradient-green-blue-wqhd-1440p-wallpaper.jpg); */
+    
+}
